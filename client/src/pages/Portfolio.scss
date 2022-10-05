@@ -1,0 +1,22 @@
+.portfolio{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    min-height:100vh;
+    background-color: #3B60E4;
+
+    h1{
+        font-size: 60px;
+        color: white;
+    }
+
+    .projects{
+        display: flex;
+        max-width: 1260px;
+        min-width: 1260px;
+        justify-content: space-between;    
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
