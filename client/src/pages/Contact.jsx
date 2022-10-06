@@ -3,11 +3,14 @@ import { useState } from 'react'
 import './Contact.scss'
 
 export default function Contact() {
+  const URL = window.location.href;
   const [mail, setMail] = useState({
     name: "",
     email: "",
     message: ""
-  })
+  });
+
+
 
   function handleChange(e) {
     setMail((prevState) => ({
@@ -19,7 +22,7 @@ export default function Contact() {
   const submitEmail = async (e) => {
     e.preventDefault();
     console.log({ mail });
-    const response = await fetch("http://localhost:5000/send", {
+    const response = await fetch("https://henrywebdevapp.herokuapp.com/send", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
