@@ -3,14 +3,16 @@ const path = require("path");
 const router = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-
 const PORT = process.env.PORT || 5000;
+require("dotenv").config();
+
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use("/", router);
-app.listen(PORT, () => console.log(`server is listening on ${PORT}`));
 app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.listen(PORT, () => console.log(`server is listening on ${PORT}`));
 
 app.get("/api", (req, res) => {
   res.json({ message: "Hello from server!" });
@@ -20,39 +22,37 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
-const contactEmail = nodemailer.createTransport({
+let transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "henryjung.dev@gmail.com",
-    pass: "vbnmjlwvrlfdpbje",
+    user: process.env.EMAIL,
+    pass: process.env.PASS,
   },
 });
-
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
+transporter.verify((err, success) => {
+  err
+    ? console.log(err)
+    : console.log(`===server is ready to take messages: ${success} ===`);
 });
 
-router.post("/email", (req, res) => {
-  const name = req.body.name;
-  const email = req.body.email;
-  const message = req.body.message;
-  const mail = {
-    from: name,
-    to: "henryjung.dev@gmail.com",
-    subject: "Contact Form Submission",
-    html: `<p>Name: ${name}</p>
-             <p>Email: ${email}</p>
-             <p>Message: ${message}</p>`,
+app.post("/send", function (req, res) {
+  let mailOptions = {
+    from: `${req.body.mail.email}`,
+    to: process.env.EMAIL,
+    subject: `Message from: ${req.body.mail.email}`,
+    text: `${req.body.mail.message}`,
   };
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json({ status: "ERROR" });
+
+  transporter.sendMail(mailOptions, function (err, data) {
+    if (err) {
+      res.json({
+        status: "fail",
+      });
     } else {
-      res.json({ status: "Message Sent" });
+      console.log("== Message Sent ==");
+      res.json({
+        status: "success",
+      });
     }
   });
 });
