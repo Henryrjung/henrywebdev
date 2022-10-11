@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import './Contact.scss'
+import Send from '../components/send/Send'
 
 export default function Contact() {
   const URL = window.location.href;
@@ -10,7 +11,7 @@ export default function Contact() {
     message: ""
   });
 
-
+  const [clicked, setClicked] = useState(false);
 
   function handleChange(e) {
     setMail((prevState) => ({
@@ -22,7 +23,7 @@ export default function Contact() {
   const submitEmail = async (e) => {
     e.preventDefault();
     console.log({ mail });
-    const response = await fetch("https://henrywebdevapp.herokuapp.com/send", {
+    const response = await fetch(URL ? "http://localhost:5000/send" : "https://henrywebdevapp.herokuapp.com/send", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -34,9 +35,15 @@ export default function Contact() {
         const resData = await res;
         console.log(resData);
         if (resData.status === "success") {
-          alert("Message Sent");
+          // alert("Message Sent");
+          var el  = document.getElementById('button');
+          el.textContent = 'Sent';
+          setClicked(true)
         } else if (resData.status === "fail") {
-          alert("Message failed to send");
+          // alert("Message failed to send");
+          var elFail  = document.getElementById('button');
+          elFail.textContent = 'retry';
+          setClicked(false);
         }
       })
       .then(() => {
@@ -44,8 +51,10 @@ export default function Contact() {
           email: "",
           name: "",
           message: "",
-        });
-      });
+        })
+          const getButton = document.querySelector('button');
+          getButton.innerHTML = `<Send />`
+      })
   };
   return (
     <div className='contact'>
@@ -63,7 +72,8 @@ export default function Contact() {
           <label htmlFor="message">Message</label>
           <textarea className='input2'  onChange={handleChange} name="message" value={mail.message} id="message" required />
         </div>
-        <button className='button'>Send</button>
+        {clicked ? <Send /> : <button className='button' id='button'>Send</button>}
+        
       </form>
     </div>
   )

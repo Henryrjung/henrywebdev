@@ -5,12 +5,11 @@ export default function Project({project}) {
   return (
     <div className='projectCard'>
         <div className="cardTop">
-           <img src={project.Img} alt="" /> 
+           <img  alt="" /> 
         </div>
         <div className="cardBottom">
-           <h1 className='projectTitle'>{project.Name}</h1>  
+           <h1 className='projectTitle'></h1>  
         </div>
-       
     </div>
   )
 }

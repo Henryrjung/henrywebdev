@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
+const routes = require("./routes/API");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const PORT = process.env.PORT || 5000;
@@ -14,13 +15,15 @@ app.use("/", router);
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.listen(PORT, () => console.log(`server is listening on ${PORT}`));
 
-app.get("/api", (req, res) => {
-  res.json({ message: "Hello from server!" });
-});
+// app.get("/api", (req, res) => {
+//   res.json({ message: "Hello from server!" });
+// });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+// });
+
+app.use("/", routes);
 
 let transporter = nodemailer.createTransport({
   service: "gmail",
