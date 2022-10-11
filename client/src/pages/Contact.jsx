@@ -4,7 +4,7 @@ import './Contact.scss'
 import Send from '../components/send/Send'
 
 export default function Contact() {
-  const URL = window.location.href;
+  // const URL = window.location.href;
   const [mail, setMail] = useState({
     name: "",
     email: "",
@@ -23,6 +23,7 @@ export default function Contact() {
   const submitEmail = async (e) => {
     e.preventDefault();
     console.log({ mail });
+     // eslint-disable-next-line no-unused-vars
     const response = await fetch("https://henrywebdevapp.herokuapp.com/send", {
       method: "POST",
       headers: {
