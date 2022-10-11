@@ -23,7 +23,7 @@ export default function Contact() {
   const submitEmail = async (e) => {
     e.preventDefault();
     console.log({ mail });
-    const response = await fetch(URL ? "http://localhost:5000/send" : "https://henrywebdevapp.herokuapp.com/send", {
+    const response = await fetch("https://henrywebdevapp.herokuapp.com/send", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
