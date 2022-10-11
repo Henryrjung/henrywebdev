@@ -8,7 +8,7 @@ export default function Project({project}) {
            <img  alt="" /> 
         </div>
         <div className="cardBottom">
-           <h1 className='projectTitle'></h1>  
+           <h1 className='projectTitle'>title</h1>  
         </div>
     </div>
   )

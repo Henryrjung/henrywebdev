@@ -13,7 +13,7 @@ export default function Home() {
                     <div className="screen">
                         <div className="notch"></div>
                         <div className="profilePic">
-                          <img src='assets/profilepic.png'></img>  
+                          <img src='assets/profilepic.png' alt='profile'></img>  
                         </div>
                         <div className="box">
                          <a href="https://github.com/Henryrjung"><GitHubIcon className='icon' /></a>
