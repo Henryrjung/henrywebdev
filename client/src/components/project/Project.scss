@@ -10,7 +10,9 @@
     overflow: hidden;
     cursor: pointer;
     transition: .5s ease all;
-
+    a{
+        text-decoration: none;
+    }
     &:hover{
         transform: scale(1.05);
     }
@@ -25,7 +27,7 @@
     .cardBottom{
         display: flex;
         padding: 10px;
-        // background-color: #f1e9db;
+        background-color: #f1e9db;
         .projectTitle{
             margin: 0px;
             color: black;
