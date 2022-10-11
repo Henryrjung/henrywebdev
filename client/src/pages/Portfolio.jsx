@@ -13,7 +13,7 @@ export default function Portfolio() {
   }, [])
 
   const getProjects = async () => {
-    const allProjects = await fetch("http://localhost:5000/testUser", {
+    const allProjects = await fetch("https://henrywebdevapp.herokuapp.com/testUser", {
       method: "GET"
     })
     .then((res) => res.json())
