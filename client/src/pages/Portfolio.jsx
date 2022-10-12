@@ -19,7 +19,7 @@ export default function Portfolio() {
     .then((res) => res.json())
     .then((async (res) => {
       const testData = await res
-      console.log(testData)
+      // console.log(testData)
       setProjects(testData)
       setIsLoaded(true)
     }))
