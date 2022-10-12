@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './Portfolio.scss'
 import Project from '../components/project/Project'
+import Spinner from '../components/spinner/Spinner'
 
 
 export default function Portfolio() {
-  // const [user, setUser] = useState({});
   const [projects, setProjects] = useState({});
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -31,19 +31,26 @@ export default function Portfolio() {
   if(isLoaded) {
    return (
     <div className='portfolio'>
+      <div className="portfolioTitle">
+        <h1>Projects</h1>
+      </div>
       <div className="projects">
+        {/* ffcollect */}
       <Project project={projects[17]} img="assets/ffcollect.png"/>
+      {/* stonker */}
       <Project project={projects[17]} img="assets/stonkerlogin.png"/>
+      {/* serialsearch */}
       <Project project={projects[28]} img="assets/Search_Screen.png"/>
+      {/* password generator */}
       <Project project={projects[2]} img="assets/passwordgenerator.png"/>
       </div>
-      {/* ffcollect */}
-     
     </div>
   ) 
   }
   return(
-    <h1>not loaded</h1>
+    <div className='notLoadedDiv'>
+      {/* <Spinner /> */}
+    </div>
   )
   
 }

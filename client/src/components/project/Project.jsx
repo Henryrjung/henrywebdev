@@ -9,7 +9,7 @@ export default function Project({ project, img }) {
            <img src={img} alt="" /> 
         </div>
         <div className="cardBottom">
-           <h1 className='projectTitle'>{project.name}</h1>  
+           <h1 className='cardTitle'>{project.name}</h1>  
         </div>
       </a>
     </div>

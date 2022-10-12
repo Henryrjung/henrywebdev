@@ -26,17 +26,31 @@ export default function Home() {
             </div>
             <div className="right">
                <div className="about">
-                    <h1>Hi, I'm Henry</h1>
+                    <h1>Hi, I'm Henry...</h1>
                     <h2>Front End Web Developer</h2>
                     <h3>Experienced in building web applications with JavaScript, React, Node.js, and CSS. </h3>
                 </div> 
             </div>
         </div>
+        {/* <div className="divider">
+
+        </div> */}
         <div className="bottom">
           <div className="bottomContainer">
-            <h1>About Me</h1>
-            <h2>I'm a front end web developer certified by KU University, with 2+ years of experience. I build clean and responsive web applications.</h2>
-            <h2>Please reach out to me using my contact form. I'm available weekdays from 9-5pm. You can also send me a DM on my twitter, and LinkedIn and I will respond as soon as I can.</h2>
+            <div className="actionDots">
+              <div className='dotClose'></div> 
+              <div className='dotMin'></div>
+              <div className='dotExp'></div>
+              <div className="searchBox">
+                <h3>https://henrywebdev.com/about</h3>
+              </div>
+            </div>
+            <div className="textSection">
+              <h1>About Me</h1>
+              <h2>I'm a front end web developer certified by KU University, with 2+ years of experience. I build clean and responsive web applications.</h2>
+              <h2>Please reach out to me using my contact form. I'm available weekdays from 9-5pm. You can also send me a DM on my twitter, and LinkedIn and I will respond as soon as I can.</h2>
+            </div>
+            
           </div>
         </div>
     </div>

@@ -19,9 +19,9 @@ app.listen(PORT, () => console.log(`server is listening on ${PORT}`));
 //   res.json({ message: "Hello from server!" });
 // });
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
 
 app.use("/", routes);
 

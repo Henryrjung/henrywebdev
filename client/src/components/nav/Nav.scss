@@ -2,15 +2,20 @@
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 20px;
+    // padding: 50px;
+    padding: 20px 50px;
     height: 10vh;
-    background-color: #3B60E4;
+    // background-color: #3B60E4;
+    background-color: #363636;
+    // background-color: black;
     .title{
         display: flex;
         justify-content: center;    
         align-items: center;
+        padding: 30px;
         .name{
             font-size: 50px;
+            font-weight: 600;
             text-decoration: none;
             color: white;
         }
@@ -19,12 +24,14 @@
         display: flex;
         justify-content: center;    
         align-items: center;
+        padding: 30px;
         .link{
             display: inline-block;
             position: relative;
             text-decoration: none;
             color: white;
             font-size: 40px;
+            font-weight: 600;
             margin: 0px 10px;
         }
         .link:after {

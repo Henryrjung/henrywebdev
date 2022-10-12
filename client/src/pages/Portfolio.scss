@@ -18,5 +18,14 @@
         justify-content: space-between;    
         align-items: center;
         flex-wrap: wrap;
+        margin-top: 40px;
     }
+}
+
+.notLoadedDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3B60E4;
+    min-height: 100vh;
 }
