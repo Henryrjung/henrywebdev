@@ -40,9 +40,9 @@ export default function Portfolio() {
       {/* stonker */}
       <Project project={projects[17]} img="assets/stonkerlogin.png"/>
       {/* serialsearch */}
-      <Project project={projects[28]} img="assets/Search_Screen.png"/>
+      <Project project={projects[28]} img="assets/Search_Screen.PNG"/>
       {/* password generator */}
-      <Project project={projects[2]} img="assets/passwordgenerator.png"/>
+      <Project project={projects[2]} img="assets/passwordgenerator.PNG"/>
       </div>
     </div>
   ) 
